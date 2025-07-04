@@ -46,15 +46,18 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+        child: ListView.builder(
+          itemCount: 50,
+          itemBuilder: (context, index) => Container(
+            height: 100,
+            width: double.maxFinite,
+            margin: EdgeInsets.only(bottom: 20, left: 16, right: 16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.deepPurple,
             ),
-          ],
+            child: Center(child: Text("Hello wrold")),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
