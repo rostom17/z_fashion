@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:z_fashion/core/constants/app_colors.dart';
+import 'package:z_fashion/core/routes/route_names.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,7 +18,12 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
   }
 
-  Future<void> _moveToNextScreen() async {}
+  Future<void> _moveToNextScreen() async {
+    await Future.delayed(const Duration(seconds: 1));
+    if (mounted) {
+      context.pushNamed(RouteNames.homeScreen);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
