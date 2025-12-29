@@ -10,4 +10,6 @@ class AssetConstants {
   static const shoppingBagIocn = "$_baseIconPath/shopping-bag.png";
   static const userIcon = "$_baseIconPath/user.png";
   static const userFilledIcon = "$_baseIconPath/user-filled.png";
+
+  static const userFilledSVG = "$_baseIconPath/user-filled.svg";
 }
