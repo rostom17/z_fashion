@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:z_fashion/core/constants/app_colors.dart';
-import 'package:z_fashion/core/constants/asset_constants.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:z_fashion/features/main_navigation/presentation/bloc/bottom_nav_cubit.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -29,36 +26,36 @@ class _BottomNavBarState extends State<BottomNavBar> {
             return Row(
               children: [
                 _buildTabItem(
-                  selectedIcon: AssetConstants.homeFilledIcon,
-                  unSelectedIcon: AssetConstants.homeIcon,
+                  selectedIcon: Iconsax.home_2_bold,
+                  unSelectedIcon: Iconsax.home_2_outline,
                   itemIndex: 0,
                   currentIndex: selectedIndex,
                   context: context,
                 ),
                 _buildTabItem(
-                  selectedIcon: AssetConstants.shoppingBagFilledIocn,
-                  unSelectedIcon: AssetConstants.shoppingBagIocn,
+                  selectedIcon: Iconsax.shopping_bag_bold,
+                  unSelectedIcon: Iconsax.shopping_bag_outline,
                   itemIndex: 1,
                   currentIndex: selectedIndex,
                   context: context,
                 ),
                 _buildTabItem(
-                  selectedIcon: AssetConstants.heartFilledIcon,
-                  unSelectedIcon: AssetConstants.heartIcon,
+                  selectedIcon: Iconsax.heart_bold,
+                  unSelectedIcon: Iconsax.heart_outline,
                   itemIndex: 2,
                   currentIndex: selectedIndex,
                   context: context,
                 ),
                 _buildTabItem(
-                  selectedIcon: AssetConstants.chatFilledIcon,
-                  unSelectedIcon: AssetConstants.chatIcon,
+                  selectedIcon: Iconsax.message_bold,
+                  unSelectedIcon: Iconsax.message_outline,
                   itemIndex: 3,
                   currentIndex: selectedIndex,
                   context: context,
                 ),
                 _buildTabItem(
-                  selectedIcon: AssetConstants.userFilledIcon,
-                  unSelectedIcon: AssetConstants.userIcon,
+                  selectedIcon: Iconsax.user_bold,
+                  unSelectedIcon: Iconsax.user_outline,
                   itemIndex: 4,
                   currentIndex: selectedIndex,
                   context: context,
@@ -72,8 +69,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   Widget _buildTabItem({
-    required String selectedIcon,
-    required String unSelectedIcon,
+    required IconData selectedIcon,
+    required IconData unSelectedIcon,
     required int itemIndex,
     required int currentIndex,
     required BuildContext context,
@@ -93,10 +90,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   shape: BoxShape.circle,
                 ),
 
-                child: Icon(CupertinoIcons.home, size: 20),
+                child: Icon(selectedIcon),
                 //child: Icon(Icons.person),
               )
-            : ImageIcon(AssetImage(unSelectedIcon), color: Colors.white54),
+            : Icon(unSelectedIcon, color: Colors.white, weight: 2),
       ),
     );
   }

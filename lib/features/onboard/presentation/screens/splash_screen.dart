@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:z_fashion/core/constants/app_colors.dart';
+import 'package:z_fashion/core/theme/app_colors.dart';
 import 'package:z_fashion/core/routes/route_names.dart';
 
 class SplashScreen extends StatefulWidget {
