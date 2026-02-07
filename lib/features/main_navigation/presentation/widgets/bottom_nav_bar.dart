@@ -77,23 +77,35 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }) {
     final bool isSelected = itemIndex == currentIndex;
     return Expanded(
-      child: InkWell(
+      child: GestureDetector(
         onTap: () {
           _onChanged(context, itemIndex, currentIndex);
         },
-        child: isSelected
-            ? Container(
-                height: 50,
-                width: 35,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                ),
-
-                child: Icon(selectedIcon),
-                //child: Icon(Icons.person),
-              )
-            : Icon(unSelectedIcon, color: Colors.white, weight: 2),
+        child: Container(
+          alignment: Alignment.center,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeOutBack,
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+              color: isSelected ? Colors.white : Colors.transparent,
+              shape: BoxShape.circle,
+            ),
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 500),
+              transitionBuilder: (child, animation) {
+                return FadeTransition(opacity: animation, child: child);
+              },
+              child: Icon(
+                isSelected ? selectedIcon : unSelectedIcon,
+                key: ValueKey<bool>(isSelected),
+                color: isSelected ? Colors.black : Colors.white,
+                size: 24,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
